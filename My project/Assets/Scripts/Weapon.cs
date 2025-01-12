@@ -43,5 +43,15 @@ public class Weapon : MonoBehaviour
         // Xoay viên đạn để nó hướng theo hướng bắn
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         bulletTmp.transform.rotation = Quaternion.Euler(0, 0, angle);
+
+        // Phát âm thanh tiếng súng
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.PlayGunSound();
+        }
+        else
+        {
+            Debug.LogWarning("AudioManager instance chưa được thiết lập!");
+        }
     }
 }
