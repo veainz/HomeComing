@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEditor;
+using System;
 public class MainMenu : MonoBehaviour
 {
 
@@ -54,7 +55,10 @@ public class MainMenu : MonoBehaviour
        Debug.Log("Restarting game...");
       GameOverMenu.SetActive(false);
    
-      SceneManager.LoadScene("MainGame");;
+       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+   }
+   public void BacktoMenu(){
+      SceneManager.LoadScene("MainMenu");
    }
    
 
