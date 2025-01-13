@@ -21,6 +21,7 @@ public class Player1 : MonoBehaviour
 
     // Thêm một biến cho Collider2D
     private Collider2D playerCollider;
+    public MainMenu GameOver;
 
     private void Start()
     {
@@ -94,6 +95,7 @@ public class Player1 : MonoBehaviour
         if (currentHealth <= 0)
         {
             Die();
+            GameOver.GameOver();
         }
     }
 
