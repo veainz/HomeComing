@@ -86,8 +86,16 @@ public class ADCEnemyAI : MonoBehaviour
             return;
         }
 
+        // Tính hướng bắn
         Vector3 direction = (player.transform.position - transform.position).normalized;
         rb.AddForce(direction * bulletSpeed, ForceMode2D.Impulse);
+
+        // Quay viên đạn dựa trên hướng bắn
+        BulletDirectionControl bulletControl = bulletTmp.GetComponent<BulletDirectionControl>();
+        if (bulletControl != null)
+        {
+            bulletControl.Initialize(direction); // Gọi phương thức Initialize để quay viên đạn
+        }
 
         // Hủy viên đạn sau thời gian tồn tại
         Destroy(bulletTmp, bulletLifeTime);
